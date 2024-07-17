@@ -7,7 +7,7 @@ options = Options()
 options.add_experimental_option("excludeSwitches", ["enable-logging"])
 
 print("testing started")
-driver = webdriver.Chrome(options=Options)
+driver = webdriver.Chrome(options=options)
 driver.get("https://www.saucedemo.com/")
 sleep(3)
 
