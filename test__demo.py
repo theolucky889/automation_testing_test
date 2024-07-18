@@ -23,7 +23,7 @@ text = driver.find_element(By.CLASS_NAME, "title").text
 
 assert "products" in text.lower()
 
-print("TEST PASSED : LOGIN SUCCESSFULL")
+print("TEST PASSED : LOGIN SUCCESSFULL", "\n")
 
 # add to cart test
 print("testing add to cart")
@@ -36,6 +36,14 @@ for btns in add_to_cart_btn[:3]:
 cart_value = driver.find_element(By.CLASS_NAME, "shopping_cart_container")
 assert "3" in cart_value.text
 print("TEST PASSED : ADD TO CART", "\n")
+
+# test remove from cart
+print("test remove from cart")
+remove_btn = driver.find_elements(By.CLASS_NAME, "btn_inventory")
+for btns in remove_btn[:2]:
+    btns.click()
+assert "1" in cart_value.text # there should be 1 item in the cart left
+print("TEST PASSED : REMOVE FROM CART", "\n")
 
 # close the driver
 driver.quit()
