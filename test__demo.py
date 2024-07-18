@@ -25,5 +25,17 @@ assert "products" in text.lower()
 
 print("TEST PASSED : LOGIN SUCCESSFULL")
 
+# add to cart test
+print("testing add to cart")
+add_to_cart_btn = driver.find_elements(By.CLASS_NAME, "btn_inventory")
+
+# click three buttons to make the cart_value 3
+for btns in add_to_cart_btn[:3]:
+    btns.click()
+
+cart_value = driver.find_element(By.CLASS_NAME, "shopping_cart_container")
+assert "3" in cart_value.text
+print("TEST PASSED : ADD TO CART", "\n")
+
 # close the driver
 driver.quit()
