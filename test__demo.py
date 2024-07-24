@@ -45,5 +45,14 @@ for btns in remove_btn[:2]:
 assert "1" in cart_value.text # there should be 1 item in the cart left
 print("TEST PASSED : REMOVE FROM CART", "\n")
 
+# Test search filter NAME Z to A
+print("Test sorting Name Z to A")
+active = driver.find_element(By.CLASS_NAME, "active_option")
+driver.find_element(By.CLASS_NAME, "product_sort_container").click()
+driver.find_element(By.XPATH, '//*[@value="az"]').click()
+
+assert "Name (Z to A)" in active
+print("TEST PASSED : SORTING FILTER")
+
 # close the driver
 driver.quit()
